@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            width: 64px;
+        }
+        table {
+            width: 58px;
+        }
+    </style>
+</head>
+<body>
+    <button id="Table_Button" onclick="Click()">Create table</button>
+    <button id="Row_Button" style="opacity: 0;" onclick="NewRow()">Create a Row</button>
+    <script>
+        function Click() {
+            let button_table = document.getElementById("Table_Button")
+            let button_row = document.getElementById("Row_Button")
+            let table = document.createElement("table")
+            table.id = "Table"
+            table.style.border = "3px solid #000000"
+            document.body.prepend(table)
+            table.append(...addtr())
+            function addtr() {
+                let result = [];
+                for(let i = 0; i <= 1; i++) {
+                    let tr = document.createElement("tr")
+                    tr.style.border = "2px solid #505050"
+                    tr.append(...addtd())
+                    result.push(tr);
+                }
+                return result;
+            }
+            function addtd() {
+                let result = [];
+                for(let i = 0; i <= 3; i++) {
+                    let td = document.createElement("td")
+                    td.style.border = "1px solid #a0a0a0"
+                    td.append(i)
+                    result.push(td);
+                }
+                button_table.remove()
+                button_row.style.opacity = 1
+                return result;
+            }
+        }
+        function NewRow() {
+            let table = document.getElementById("Table")
+            table.append(...addtr())
+            function addtr() {
+                let result = [];
+                for(let i = 0; i <= 0; i++) {
+                    let tr = document.createElement("tr")
+                    tr.style.border = "2px solid #505050"
+                    tr.append(...addtd())
+                    result.push(tr);
+                }
+                return result;
+            }
+            function addtd() {
+                let result = [];
+                for(let i = 0; i <= 3; i++) {
+                    let td = document.createElement("td")
+                    td.style.border = "1px solid #a0a0a0"
+                    td.append(i)
+                    result.push(td);
+                }
+                return result;
+            }
+        }
+    </script>
+</body>
+</html>
