@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Последняя буква</title>
+    <style>
+        .body{
+            background-color: coral;
+        }
+        .green {
+             background: #73A353; 
+             height: 35px;
+             width: 35px;
+             }
+        .hj{
+            text-align: center;
+        }
+        .gf{
+            height: auto;
+             width: 100px;
+        }
+    </style>
+</head>
+<body class="body">
+    <form class="hj">
+        <label><h1>Введите слово</h1>
+        <input type="number" id = "input" placeholder="00000" class="gf">
+        <input type="button" onclick="af()"  class="green">
+            <p id="p"></p>
+        </label>
+    </form>    
+    <svg>
+        <polygon points="100,140 150,88 200,140 " fill="green" stroke-width="1" stroke="rgb(0,0,0)"/>
+        </svg >
+    <script>
+            let input = document.getElementById("input")
+        function af() {
+            let p = document.getElementById("p")
+            let value = input.value
+            let a = +value.at(-1)
+            let b = +value.at(0)
+            p.innerHTML = a + b
+        }
+    </script>
+</body>
+</html>
