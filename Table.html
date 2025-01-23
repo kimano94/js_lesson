@@ -6,14 +6,22 @@
     <title>Document</title>
     <style>
         body {
+            background-color: #202428;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            font-family: Bahnschrift;
         }
         button {
+            border-radius: 10px;
+            background-color: #40484f;
+            color: #ffffff;
+            font-family: Bahnschrift;
             width: 64px;
         }
         table {
             width: 58px;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -26,14 +34,13 @@
             let button_row = document.getElementById("Row_Button")
             let table = document.createElement("table")
             table.id = "Table"
-            table.style.border = "3px solid #000000"
+            table.style.border = "3px solid #aaaaaa"
             document.body.prepend(table)
             table.append(...addtr())
             function addtr() {
                 let result = [];
                 for(let i = 0; i <= 1; i++) {
                     let tr = document.createElement("tr")
-                    tr.style.border = "2px solid #505050"
                     tr.append(...addtd())
                     result.push(tr);
                 }
@@ -43,7 +50,7 @@
                 let result = [];
                 for(let i = 0; i <= 3; i++) {
                     let td = document.createElement("td")
-                    td.style.border = "1px solid #a0a0a0"
+                    td.style.border = "1px solid #999999"
                     td.append(i)
                     result.push(td);
                 }
@@ -59,7 +66,6 @@
                 let result = [];
                 for(let i = 0; i <= 0; i++) {
                     let tr = document.createElement("tr")
-                    tr.style.border = "2px solid #505050"
                     tr.append(...addtd())
                     result.push(tr);
                 }
@@ -69,7 +75,7 @@
                 let result = [];
                 for(let i = 0; i <= 3; i++) {
                     let td = document.createElement("td")
-                    td.style.border = "1px solid #a0a0a0"
+                    td.style.border = "1px solid #999999"
                     td.append(i)
                     result.push(td);
                 }
