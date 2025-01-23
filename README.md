@@ -1,2 +1,2 @@
-- **Я Максим**
-- Тут мои проекты
+- **I'm Max**
+- There are my projects
