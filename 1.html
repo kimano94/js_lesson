@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p"></p>
+    <button onclick="Click()">Change</button>
+    <script>
+        let arr = ["1", "2", "3", "4", "5"]
+        let p = document.getElementById("p")
+        function randomInteger(min, max) {
+            let rand = min + Math.random() * (max + 1 - min);
+            return Math.floor(rand);
+        }
+        function Click() {
+            p.innerHTML = arr[randomInteger(0, arr.length - 1)]
+        }
+    </script>
+</body>
+</html>
