@@ -1,0 +1,5 @@
+<svg width="850" height="850" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="80 15,56 89,2 56" fill="yellow"/>
+    <!-- <path d="M 15 75 H" -->
+    <path d="M120 150 Q 150 95,250 150 S 300 95,350 150 S 250 270, 250 310 S 90 180, 120 150" stroke="red" fill="red"/>
+</svg>
