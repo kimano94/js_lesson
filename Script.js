@@ -1,5 +1,7 @@
-let tdCount = 4
+let tdCount = 20
 let Mode = "Normal"
+let Vertical_id = 1
+let Horisontal_id = 1
 function NewTable() {
     let button_table = document.getElementById("Table_Button")
     let button_row = document.getElementById("Row_Button")
@@ -8,11 +10,13 @@ function NewTable() {
     let input_col = document.getElementById("Col_input")
     let change_mode = document.getElementById("Change_Mode")
     let button_remove = document.getElementById("Table_Button_Remove")
+    let div = document.createElement("div")
+    div.id = "Table_div"
     let table = document.createElement("table")
     table.id = "Table"
-    table.style.border = "3px solid #aaaaaa"
-    document.body.prepend(table)
-    table.append(...addRow(2))
+    document.body.prepend(div)
+    div.prepend(table)
+    table.append(...addRow(5))
     button_table.hidden = 1
     button_row.hidden = 0
     input_row.hidden = 0
@@ -31,25 +35,29 @@ function NewCol() {
     let tr = document.getElementsByTagName("tr")
     let input = document.getElementById("Col_input")
     tdCount += parseInt(input.value)
+    Vertical_id = 1
     for(let row of tr) {
         row.append(...addTdCol(input.value));
+        Vertical_id += 1
     }
 }
 function addTdCol(count) {
     let result = [];
     for(let i = 0; i <= count - 1; i++) {
         let td = document.createElement("td")
-        td.style.border = "1px solid #999999"
+        td.id = Vertical_id + "; " + Horisontal_id
+        Horisontal_id += 1
         result.push(td);
     }
     return result;
 }
-
 function addRow(count) {
     let result = [];
     for(let i = 0; i <= count - 1; i++) {
         let tr = document.createElement("tr")
         tr.append(...addTdRow())
+        Vertical_id += 1
+        Horisontal_id = 1
         result.push(tr);
 }
 return result;
@@ -58,7 +66,8 @@ function addTdRow() {
     let result = [];
     for(let i = 0; i <= tdCount - 1; i++) {
         let td = document.createElement("td")
-        td.style.border = "1px solid #999999"
+        td.id = Vertical_id + "; " + Horisontal_id
+        Horisontal_id += 1
         result.push(td);
     }
     return result;
@@ -80,6 +89,7 @@ function ChangeMode() {
         let td = document.getElementsByTagName("td")
         for(let cell of td) {
             let input = document.createElement("input")
+            input.maxLength = "12"
             input.value = cell.innerHTML
             cell.innerHTML = ""
             input.id = "Value_Mode"
@@ -122,18 +132,7 @@ function RemoveTable() {
 }
 
 function Check() {
-    let td = document.getElementsByTagName("td")
-    let Width = 100/tdCount
-    for(let cell of td) {
-        if(cell.style.width != `${Width}%`) {
-            cell.style.width = `${Width - 0.5}%`
-        }
-        for(let i = 0; i <= cell.innerHTML.length - 1; i++) {
-            if(i % 10 == 0) {
-                cell.innerHTML = cell.innerHTML
-            }
-        }
-    }
+
 }
 
-let timer = setInterval(Check, 1000)
+let timer = setInterval(Check, 100)
