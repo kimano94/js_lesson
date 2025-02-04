@@ -1,161 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-      body {
-        background-color: #202428;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: Bahnschrift;
-      }
-      button {
-        border-radius: 10px;
-        background-color: #40484f;
-        color: #ffffff;
-        font-family: Bahnschrift;
-        font-size: 14px;
-        width: 103px;
-        height: 50px;
-      }
-      input {
-        width: 153px;
-        height: 50px;
-        border-radius: 10px;
-        background-color: #40484f;
-        color: #ffffff;
-        font-family: Bahnschrift;
-      }
-      .Row_and_Col {
-        width: 256px;
-        height: 50px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
-      table {
-        width: 250px;
-        color: #ffffff;
-      }
-      tr {
-        display: flex;
-        flex-direction: row;
-      }
-      td {
-        display: flex;
-        justify-content: center;
-        width: 25%;
-        height: 10px;
-      }
-    </style>
-  </head>
-  <body>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
     <button id="Table_Button" onclick="NewTable()">Create table</button>
     <div class="Row_and_Col">
-      <input
-        type="number"
-        id="Row_input"
-        hidden
-        placeholder="Type a Number of Rows to Add"
-      />
-      <button id="Row_Button" hidden onclick="NewRow()">Add a Row</button>
+        <input type="number" id="Row_input" hidden placeholder="Type a Number of Rows to Add">
+        <button id="Row_Button" hidden onclick="NewRow()">Add a Row</button>
     </div>
     <div class="Row_and_Col">
-      <input
-        type="number"
-        id="Col_input"
-        hidden
-        placeholder="Type a Number of Columns to Add"
-      />
-      <button id="Col_Button" hidden onclick="NewCol()">Add a Column</button>
+        <input type="number" id="Col_input" hidden placeholder="Type a Number of Columns to Add">
+        <button id="Col_Button" hidden onclick="NewCol()">Add a Column</button>
     </div>
-    <button id="Table_Button_Remove" onclick="RemoveTable()" hidden>
-      Remove table
-    </button>
-    <script>
-      let tdCount;
-      function NewTable() {
-        tdCount = 4;
-        let button_table = document.getElementById("Table_Button");
-        let button_row = document.getElementById("Row_Button");
-        let input_row = document.getElementById("Row_input");
-        let button_col = document.getElementById("Col_Button");
-        let input_col = document.getElementById("Col_input");
-        let button_remove = document.getElementById("Table_Button_Remove");
-        let table = document.createElement("table");
-        table.id = "Table";
-        table.style.border = "3px solid #aaaaaa";
-        document.body.prepend(table);
-        table.append(...addRow(2));
-        button_table.hidden = 1;
-        button_row.hidden = 0;
-        input_row.hidden = 0;
-        button_col.hidden = 0;
-        input_col.hidden = 0;
-        button_remove.hidden = 0;
-      }
-
-      function NewRow() {
-        let table = document.getElementById("Table");
-        let input = document.getElementById("Row_input");
-        table.append(...addRow(input.value));
-      }
-      function NewCol() {
-        let tr = document.getElementsByTagName("tr");
-        let input = document.getElementById("Col_input");
-        tdCount += parseInt(input.value);
-        for (let row of tr) {
-          row.append(...addTdCol(input.value));
-        }
-      }
-      function addTdCol(count) {
-        let result = [];
-        for (let i = 0; i <= count - 1; i++) {
-          let td = document.createElement("td");
-          td.style.border = "1px solid #999999";
-          result.push(td);
-        }
-        return result;
-      }
-
-      function addRow(count) {
-        let result = [];
-        for (let i = 0; i <= count - 1; i++) {
-          let tr = document.createElement("tr");
-          tr.append(...addTdRow());
-          result.push(tr);
-        }
-        return result;
-      }
-      function addTdRow() {
-        let result = [];
-        for (let i = 0; i <= tdCount - 1; i++) {
-          let td = document.createElement("td");
-          td.style.border = "1px solid #999999";
-          result.push(td);
-        }
-        return result;
-      }
-
-      function RemoveTable() {
-        let button_table = document.getElementById("Table_Button");
-        let button_row = document.getElementById("Row_Button");
-        let input_row = document.getElementById("Row_input");
-        let button_col = document.getElementById("Col_Button");
-        let input_col = document.getElementById("Col_input");
-        let button_remove = document.getElementById("Table_Button_Remove");
-        let table = document.getElementById("Table");
-        table.remove();
-        button_table.hidden = 0;
-        button_row.hidden = 1;
-        input_row.hidden = 1;
-        button_col.hidden = 1;
-        input_col.hidden = 1;
-        button_remove.hidden = 1;
-      }
-    </script>
-  </body>
+    <button id="Change_Mode" onclick="ChangeMode()" hidden>Change Mode</button>
+    <button id="Table_Button_Remove" onclick="RemoveTable()" hidden>Remove table</button>
+    <script src="Script.js"></script>
+</body>
 </html>
