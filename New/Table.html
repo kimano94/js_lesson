@@ -9,6 +9,11 @@
   <body id="Body">
     <div id="Table_div"></div>
     <button class="UI" onclick="NewTable()">Create Table</button>
+    <input class="UI" id="Row" type="number" value="1" hidden />
+    <button class="UI" onclick="NewTr(1)" hidden>New Row</button>
+    <input class="UI" id="Col" type="number" value="1" hidden />
+    <button class="UI" onclick="NewTd(1)" hidden>New Col</button>
+    <button onclick="ChangeBg()">Change Color</button>
     <script src="Script.js"></script>
   </body>
 </html>
