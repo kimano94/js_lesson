@@ -1,5 +1,6 @@
 TrCount = 5;
 TdCount = 25;
+let Mode = "Normal";
 
 function NewTable() {
   let div = document.getElementById("Table_div");
@@ -24,15 +25,12 @@ function NewTr() {
   table.append(...AddTr(input.value));
 }
 function NewTd() {
-  let table = document.getElementById("Table");
   let input = document.getElementById("Col");
   let tr = document.getElementsByTagName("tr");
   TdCount += input.value;
   for (let row of tr) {
-    row.append(...addTdCol(input.value));
-    Vertical_id += 1;
+    row.append(...AddTd(input.value));
   }
-  table.append(...AddTr(input.value));
 }
 
 function AddTr(Count) {
@@ -56,9 +54,38 @@ function AddTd(Count) {
 
 function ChangeBg() {
   let body = document.getElementById("Body");
-  let Red = Math.floor(Math.random() * 256).toString(16);
-  let Green = Math.floor(Math.random() * 256).toString(16);
-  let Blue = Math.floor(Math.random() * 256).toString(16);
   let bgColor = "#" + Math.floor(Math.random() * 16777216).toString(16);
   body.style.backgroundColor = bgColor;
+}
+
+function ChangeMode() {
+  let UI = document.getElementsByClassName("UI");
+  for (let UIElem of UI) {
+    UIElem.hidden = 1;
+    if (UIElem.id == "Change_Mode") {
+      UIElem.hidden = 0;
+    }
+  }
+  if (Mode == "Normal") {
+    Mode = "Value";
+    let td = document.getElementsByTagName("td");
+    for (let cell of td) {
+      let input = document.createElement("input");
+      input.value = cell.innerHTML;
+      cell.innerHTML = "";
+      input.class = "Value";
+      cell.append(input);
+      input.hidden = 0;
+    }
+  } else if (Mode == "Value") {
+    Mode = "Normal";
+    let td = document.getElementsByTagName("td");
+    let i = 0;
+    for (let cell of td) {
+      let input = document.getElementsByClassName("Value");
+      cell.innerHTML = input.value;
+      input[i].remove();
+      i += 1;
+    }
+  }
 }
