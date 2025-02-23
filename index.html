@@ -19,21 +19,24 @@
 <body>
     <input type = "button" onclick="draw()"class = "d"></button>
     <input type = "button" onclick="a()"class = "c"></button>
-    <canvas id="canvas" width="300px" height="300px"></canvas>
+    <canvas id="canvas" width="500px" height="500px"></canvas>
     <script>
+        const x = canvas.getContext("2d");
         function draw() {
-  const canvas = document.getElementById("canvas");
-  if (canvas.getContext) {
-    const x = canvas.getContext("2d");
-
-    x.fillRect(25, 25, 100, 100);
-    x.clearRect(45, 45, 60, 60);
-    x.strokeRect(50, 50, 50, 50);
-  }
+            const canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                x.fillRect(25, 25, 100, 100);
+                x.clearRect(45, 45, 60, 60);
+                x.strokeRect(50, 50, 50, 50);
+                x.
+            }
 }
        function a(){
-        canvas.remove()
+           x.clearRect(0, 0, 500, 500)
     }
     </script>
+    <p>
+        Зелёная кнопка добавляет, а красная - удаляет.
+    </p>
 </body>
 </html>
