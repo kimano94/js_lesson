@@ -25,15 +25,25 @@
         function draw() {
             const canvas = document.getElementById("canvas");
             if (canvas.getContext) {
-                x.fillRect(25, 25, 100, 100);
-                x.clearRect(45, 45, 60, 60);
-                x.strokeRect(50, 50, 50, 50);
-                x.
-            }
-}
-       function a(){
-           x.clearRect(0, 0, 500, 500)
+                // x.fillRect(25, 25, 100, 100);
+                // x.clearRect(45, 45, 60, 60);
+                // x.strokeRect(50, 50, 50, 50);
+                for (var i = 0; i < 6; i++) {
+    for (var j = 0; j < 6; j++) {
+      x.fillStyle =
+        "rgb(" +
+        Math.floor(255 - 42.5 * i) +
+        "," +
+        Math.floor(255 - 42.5 * j) +
+        ",0)";
+      x.fillRect(j * 35, i * 35, 35, 35);
     }
+  }
+            }
+        }
+        function a(){
+           x.clearRect(0, 0, 500, 500)
+        }
     </script>
     <p>
         Зелёная кнопка добавляет, а красная - удаляет.
