@@ -29,7 +29,7 @@ button {
   border: solid 0px;
   border-radius: 10px;
 }
-input.Value {
+#Value {
   width: 100%;
   height: 100%;
 }
@@ -51,4 +51,6 @@ input {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  position: sticky;
+  bottom: 0px;
 }

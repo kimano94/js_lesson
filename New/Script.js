@@ -73,19 +73,16 @@ function ChangeMode() {
       let input = document.createElement("input");
       input.value = cell.innerHTML;
       cell.innerHTML = "";
-      input.class = "Value";
+      input.id = "Value";
       cell.append(input);
-      input.hidden = 0;
     }
   } else if (Mode == "Value") {
     Mode = "Normal";
     let td = document.getElementsByTagName("td");
-    let i = 0;
     for (let cell of td) {
-      let input = document.getElementsByClassName("Value");
+      let input = document.getElementById("Value");
       cell.innerHTML = input.value;
-      input[i].remove();
-      i += 1;
+      input.remove();
     }
   }
 }
