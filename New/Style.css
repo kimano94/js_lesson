@@ -21,12 +21,14 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 button {
   background-color: #40484f;
   width: 100px;
   height: 50px;
-  border: solid 0px;
+  border: solid 1px #ffffff;
   border-radius: 10px;
 }
 #Value {
@@ -38,16 +40,19 @@ input {
   height: 50px;
   border-radius: 10px;
   background-color: #40484f;
-  border: solid 0px;
+  border: solid 1px #ffffff;
 }
 #Table_div {
   width: 100%;
   overflow-x: scroll;
-  overflow-x: auto;
   scrollbar-color: #404448 #80888f;
 }
 #Buttons {
+  padding: 25px;
+  background-color: #202428;
   display: flex;
+  border-radius: 25px;
+  border: solid 5px #404448;
   justify-content: center;
   align-items: center;
   flex-direction: row;
