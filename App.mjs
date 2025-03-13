@@ -46,18 +46,101 @@ fs.writeFileSync("Num.txt", num); */
 
 /* if (err != null) {
   console.log(err);
+} else {
+  <Code>
 } */
 
 /* fs.readFile("Num.txt", "utf8", function (err, data) {
   console.log(parseInt(data) ** 2);
 }); */
 
-import fs from "fs";
-fs.readFile("Num.txt", "utf8", function (err, data) {
+/* fs.readFile("Num.txt", "utf8", function (err, data) {
   if (err != null) {
     console.log("Произошла ошибка:");
     console.log("Номер ошибки:", err.errno);
     console.log("Код ошибки:", err.code);
   }
   console.log(data);
+}); */
+
+/* for (let i = 1; i <= 10; i++) {
+  if (i % 2 == 0) {
+    fs.writeFile(i + ".txt", i, function (err) {
+      if (err != null) {
+        console.log(err);
+      }
+    });
+  }
+} */
+
+/* fs.readFile("readme1.txt", "utf8", function (err, data1) {
+  if (err != null) {
+    console.log(err);
+  } else {
+    fs.readFile("readme2.txt", "utf8", function (err, data2) {
+      if (err != null) {
+        console.log(err);
+      } else {
+        fs.readFile("readme3.txt", "utf8", function (err, data3) {
+          if (err != null) {
+            console.log(err);
+          } else {
+            console.log(parseInt(data1) + parseInt(data2) + parseInt(data3));
+          }
+        });
+      }
+    });
+  }
+}); */
+
+/* fs.readFile("readme1.txt", "utf8", function (err, data1) {
+  if (err != null) {
+    console.log(err);
+  } else {
+    fs.readFile("readme2.txt", "utf8", function (err, data2) {
+      if (err != null) {
+        console.log(err);
+      } else {
+        fs.readFile("readme3.txt", "utf8", function (err, data3) {
+          if (err != null) {
+            console.log(err);
+          } else {
+            fs.writeFile(
+              "readme.txt",
+              parseInt(data1) + parseInt(data2) + parseInt(data3),
+              function (err) {
+                if (err != null) {
+                  console.log(err);
+                }
+              }
+            );
+          }
+        });
+      }
+    });
+  }
+}); */
+
+/* fs.readFile("readme1.txt", "utf8", (err, data1) => {
+  if (err != null) {
+    console.log(err);
+  } else {
+    fs.readFile("readme2.txt", "utf8", (err, data2) => {
+      if (err != null) {
+        console.log(err);
+      } else {
+        fs.writeFile("readme.txt", parseInt(data1) + parseInt(data2), (err) => {
+          if (err != null) {
+            console.log(err);
+          }
+        });
+      }
+    });
+  }
+}); */
+
+import fs from "fs";
+fs.promises.readFile("readme.txt", "utf8").then((data) => {
+  for (let i = 1; i <= data.length; i++) {}
+  console.log(data[0]);
 });
