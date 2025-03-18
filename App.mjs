@@ -139,8 +139,45 @@ fs.writeFileSync("Num.txt", num); */
   }
 }); */
 
+/* fs.promises.readFile("readme.txt", "utf8").then((data) => {
+  let result = 0;
+  for (let i = 0; i <= data.length - 1; i++) {
+    result += parseInt(data[i]);
+  }
+  console.log(result);
+}); */
+
+/* function getRandomInt(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+async function func() {
+  try {
+    let names = ["1.txt", "2.txt"];
+    let data = [];
+
+    for (let name of names) {
+      await fs.promises.writeFile(name, getRandomInt(100));
+      data.push(await fs.promises.readFile(name, "utf-8"));
+    }
+
+    let result = 0;
+    for (let i = 0; i <= data.length - 1; i++) {
+      result += parseInt(data[i]);
+    }
+
+    await fs.promises.writeFile("readme.txt", result);
+  } catch (err) {
+    console.log("Произошла ошибка:");
+    console.log("Номер ошибки:", err.errno);
+    console.log("Код ошибки:", err.code);
+    console.log(err);
+  }
+}
+
+func(); */
+
 import fs from "fs";
-fs.promises.readFile("readme.txt", "utf8").then((data) => {
-  for (let i = 1; i <= data.length; i++) {}
-  console.log(data[0]);
+let path = "dir1/dir2/readme.txt";
+fs.promises.readFile(path, "utf8").then((data) => {
+  console.log(data);
 });
