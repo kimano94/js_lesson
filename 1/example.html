@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        canvas {
+  border: 1px solid black;
+}
+.d {
+    background-color: green;
+}
+.c {
+    background-color: red;
+}
+.w {
+  background-color: rgb(17, 0, 255);
+}
+</style>
+</head>
+<body>
+<input type = "button" onclick="draw()"class = "d"></button>
+<input type = "button" onclick="a()"class = "c"></button>
+<input type = "button" onclick="e()"class = "w"></button>
+<canvas id="canvas" width="700px" height="700px"></canvas>
+<script>
+  const x = canvas.getContext("2d");
+  function draw() {
+      const canvas = document.getElementById("canvas");
+          // x.fillRect(25, 25, 100, 100);
+          // x.clearRect(45, 45, 60, 60);
+          // x.strokeRect(50, 50, 50, 50);
+      for (var i = 0; i < 6; i++) {
+          for (var j = 0; j < 6; j++) {
+              x.fillStyle =
+              "rgb(" +
+              Math.floor(255 - 42.5 * i) +
+              "," +
+              Math.floor(255 - 42.5 * j) +
+              ",0)";
+              x.fillRect(j * 35, i * 35, 35, 35);
+          }
+      }
+  }
+  function e(){
+      x.font = "48px serif";
+      x.fillText("Привет мир!", 250, 90);
+      var img = new Image(); // Создаёт новое изображение
+      img.addEventListener(
+      "load",
+      function () {
+          x.drawImage(img, 0, 300, 700, 400);
+      // здесь выполняет drawImage функцию
+      },
+      false,
+      );
+      img.src = "Россия.jpg"; // Устанавливает источник файла
+  }
+  function a(){
+     x.clearRect(0, 0, 700, 700)
+  }
+</script>
+<p>
+  Зелёная кнопка добавляет палитру, синяя - текст и флаг, а красная - удаляет всё.
+</p>
+</body>
+</html>
