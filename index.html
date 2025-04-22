@@ -1,59 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas</title>
+    <meta charset="utf-8" />
+    <title>Deserg</title>
     <style>
-              canvas {
-        border: 1px solid black;
-      }
-      .d {
-          background-color: green;
-      }
-      .c {
-          background-color: red;
-      }
-      .w {
-        background-color: rgb(17, 0, 255);
-      }
+        body { 
+
+            background-color: rgb(202, 255, 124); 
+    
+        }
     </style>
 </head>
 <body>
-    <input type = "button" onclick="draw()"class = "d"></button>
-    <input type = "button" onclick="a()"class = "c"></button>
-    <input type = "button" onclick="e()"class = "w"></button>
-    <canvas id="canvas" width="500px" height="500px"></canvas>
-    <script>
-        const x = canvas.getContext("2d");
-        function draw() {
-            const canvas = document.getElementById("canvas");
-                // x.fillRect(25, 25, 100, 100);
-                // x.clearRect(45, 45, 60, 60);
-                // x.strokeRect(50, 50, 50, 50);
-            for (var i = 0; i < 6; i++) {
-                for (var j = 0; j < 6; j++) {
-                    x.fillStyle =
-                    "rgb(" +
-                    Math.floor(255 - 42.5 * i) +
-                    "," +
-                    Math.floor(255 - 42.5 * j) +
-                    ",0)";
-                    x.fillRect(j * 35, i * 35, 35, 35);
-                }
-            }
-        }
-        function e(){
-            x.font = "48px serif";
-            x.fillText("Hello world", 250, 90);
-        }
-        function a(){
-           x.clearRect(0, 0, 500, 500)
-        }
-        
-    </script>
-    <p>
-        Зелёная кнопка добавляет палитру, синяя - текст, а красная - удаляет всё.
-    </p>
+<form action="user" method="post">
+<p>
+    <label>Имя:</label><br>
+    <input name="username" />
+</p>
+<p>
+    <label>Возраст:</label><br>
+    <input name="userage" type="number" />
+</p>
+<input type="submit" value="Отправить" />
+</form>
 </body>
 </html>
