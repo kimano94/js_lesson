@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepik</title>
+    <style>
+            body { 
+
+                background-color: rgb(218, 255, 162); 
+
+            }               
+            div[id = "a1"]{
+                text-align: center;
+            }
+            div[id = "a2"]{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <div id="a1">
+    <h1>Добро пожаловать на Deepik</h1>
+    <p>Это сайт, на который вы можете загружать файлы и хранить их.</p>
+    <h1>Регистрация</h1></div>
+    <div id="a2"><form action="user" method="post">
+        <p>
+            <label>Имя:</label><br>
+            <input name="username"/>
+        </p>
+        <p>
+            <label>Возраст:</label><br>
+            <input name="userage" type="number" />
+        </p>
+        <input type="submit" value="Отправить" onclick="window.location.href='//example.com'"/><br>
+        <p>Загрузите ваш файл</p>
+        <input type="file" name="one" id="" value="Загрузить файл">
+        </form></div>
+</body>
+</html>
