@@ -6,15 +6,18 @@
     <title>Deepik</title>
     <style>
             body { 
-
+                width: 100%;
+                height: auto;
                 background-color: rgb(218, 255, 162); 
 
             }               
             div[id = "a1"]{
+                width: 20%;
+                height: auto;
+                position: absolute;
+                left: 40%;
                 text-align: center;
-            }
-            div[id = "a2"]{
-                text-align: center;
+                border: 1px;
             }
     </style>
 </head>
@@ -22,8 +25,9 @@
     <div id="a1">
     <h1>Добро пожаловать на Deepik</h1>
     <p>Это сайт, на который вы можете загружать файлы и хранить их.</p>
-    <h1>Регистрация</h1></div>
-    <div id="a2"><form action="user" method="post">
+    <fieldset>
+    <h1>Регистрация</h1>
+    <form action="user" method="post">
         <p>
             <label>Имя:</label><br>
             <input name="username"/>
@@ -32,9 +36,10 @@
             <label>Возраст:</label><br>
             <input name="userage" type="number" />
         </p>
-        <input type="submit" value="Отправить" onclick="window.location.href='//example.com'"/><br>
-        <p>Загрузите ваш файл</p>
-        <input type="file" name="one" id="" value="Загрузить файл">
-        </form></div>
+        <input type="submit" value="Отправить" /><br>
+        <!-- <p>Загрузите ваш файл</p>
+        <input type="file" name="one" id="" value="Загрузить файл"> -->
+        </form>
+    </fieldset></div>
 </body>
 </html>
