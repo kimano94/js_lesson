@@ -10,6 +10,7 @@ function getMimeType(path) {
     svg: "image/svg+xml",
     json: "application/json",
     js: "application/javascript",
+    mjs: "application/javascript",
     css: "text/css",
     ico: "image/x-icon",
     ttf: "font/ttf",
