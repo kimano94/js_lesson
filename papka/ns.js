@@ -2,7 +2,6 @@ const http = require("http");
 const fs = require("fs");
   
 http.createServer(async (request, response) => {
-        
     if(request.url == "/user"){
            
           let body = "";   // буфер для получаемых данных
@@ -23,9 +22,15 @@ http.createServer(async (request, response) => {
             if(paramName === "username") userName = paramValue;
             if(paramName === "userage") userAge = paramValue;
         }
+        if(userAge>=14){
+            dat = ""
+            fs.writeFile("Deepik.html", dat)
         response.end(`Your name: ${userName}  Your Age: ${userAge}`);
+        }else{
+            fs.readFile("1.html", (_, data) => response.end(data));
+        }
     }
     else{
         fs.readFile("index.html", (_, data) => response.end(data));
     }
-}).listen(3000, ()=>console.log("Сервер запущен по адресу http://localhost:3000"));
+}).listen(4000, ()=>console.log("Сервер запущен по адресу http://localhost:4000"));
