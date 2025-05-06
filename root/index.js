@@ -127,3 +127,11 @@ function ChangeMode() {
     }
   }
 }
+function Save() {
+  let table = document.getElementById("Table");
+  let div = document.getElementById("Save");
+  let p = document.createElement("p");
+  p.innerHTML = table;
+  console.log(table);
+  div.append(p);
+}

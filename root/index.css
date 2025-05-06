@@ -22,10 +22,11 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: scroll;
 }
 button {
   background-color: #40484f;
-  width: 100px;
+  width: 150px;
   height: 50px;
   border: solid 1px #ffffff;
   border-radius: 10px;
@@ -37,6 +38,7 @@ button {
   margin: 0%;
 }
 input {
+  padding-left: 5px;
   width: 150px;
   height: 50px;
   border-radius: 10px;
@@ -58,4 +60,20 @@ input {
   flex-direction: row;
   position: sticky;
   top: 0px;
+}
+.Row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#Save {
+  padding: 25px;
+  background-color: #202428;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: sticky;
+  bottom: 0px;
 }
