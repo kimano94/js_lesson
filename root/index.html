@@ -16,12 +16,11 @@
         <input class="UI" id="Row" type="number" placeholder="Ряды:" hidden />
         <button class="UI" onclick="NewTr()" hidden>Добавить ряд</button>
       </div>
-
       <div class="Row">
         <label class="UI" hidden>Количество столбцов:</label>
         <input
           class="UI"
-          id="Row"
+          id="Col"
           type="number"
           placeholder="Столбец:"
           hidden
@@ -49,13 +48,18 @@
         />
       </div>
       <button class="Search" onclick="Search()" hidden>Поиск</button>
+      <div class="Row">
+        <label class="Text" hidden>Текст</label>
+        <input class="Text" id="Text" type="text" placeholder="Текст:" hidden />
+      </div>
+      <button class="Text" onclick="Text()" hidden>Поиск</button>
       <button class="UI" onclick="ChangeMode()" id="Change_Mode" hidden>
         Поменять режим
       </button>
     </div>
     <div id="Table_div"></div>
-    <div id="Save">
-      <button class="UI" onclick="Save()" hidden>Сохранить</button>
+    <div id="Save_div">
+      <button class="UI" onclick="Save()" id="Save" hidden>Сохранить</button>
     </div>
     <script src="index.js"></script>
   </body>

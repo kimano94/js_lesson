@@ -23,17 +23,25 @@ function NewTable() {
 function NewTr() {
   let table = document.getElementById("Table");
   let input = document.getElementById("Row");
-  TrCount += input.value;
-  table.append(...AddTr(input.value));
+  let number = input.value;
+  if (number == 0) {
+    number = 1;
+  }
+  TrCount += number;
+  table.append(...AddTr(number));
 }
 function NewTd() {
   let input = document.getElementById("Col");
   let tr = document.getElementsByTagName("tr");
   let Old_id = Col_id;
-  TdCount += input.value;
+  let number = input.value;
+  if (number == 0) {
+    number = 1;
+  }
+  TdCount += number;
   for (let row of tr) {
     Col_id = Old_id;
-    row.append(...AddTd(input.value));
+    row.append(...AddTd(number));
   }
 }
 
@@ -73,9 +81,21 @@ function Search() {
     if (tr.id == Ver.value) {
       for (td of tr.children) {
         if (td.id == Hor.value) {
-          td.style.backgroundColor = "#40484f";
+          td.style.backgroundColor = "#80888f";
         }
       }
+    }
+  }
+}
+function Text() {
+  let td = document.getElementsByTagName("td");
+  let Text = document.getElementById("Text");
+  for (let cell of td) {
+    cell.style.backgroundColor = "#202428";
+  }
+  for (cell of td) {
+    if (cell.innerHTML == Text.value) {
+      cell.style.backgroundColor = "#80888f";
     }
   }
 }
@@ -83,10 +103,11 @@ function Search() {
 function ChangeMode() {
   let UI = document.getElementsByClassName("UI");
   let Search = document.getElementsByClassName("Search");
+  let Text = document.getElementsByClassName("Text");
   if (Mode == "Normal") {
     for (let UIElem of UI) {
       UIElem.hidden = 1;
-      if (UIElem.id == "Change_Mode") {
+      if (UIElem.id == "Change_Mode" || UIElem.id == "Save") {
         UIElem.hidden = 0;
       }
     }
@@ -111,13 +132,25 @@ function ChangeMode() {
       input.remove();
     }
   } else if (Mode == "Search") {
+    for (let UIElem of Search) {
+      UIElem.hidden = 1;
+    }
+    for (let UIElem of Text) {
+      UIElem.hidden = 0;
+    }
+    Mode = "Text";
+    let td = document.getElementsByTagName("td");
+    for (let cell of td) {
+      cell.style.backgroundColor = "#202428";
+    }
+  } else if (Mode == "Text") {
     for (let UIElem of UI) {
       UIElem.hidden = 0;
       if (UIElem.id == "Table_Button") {
         UIElem.hidden = 1;
       }
     }
-    for (let UIElem of Search) {
+    for (let UIElem of Text) {
       UIElem.hidden = 1;
     }
     Mode = "Normal";
