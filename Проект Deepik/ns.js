@@ -26,7 +26,8 @@ http.createServer(async (request, response) => {
             data = ""
             fs.writeFile("Deepik.html", data)
             response.end(data)
-            fs.readFile()
+            let a = document.getElementById("file").value
+            fs.readFile(a, (_, data) => response.end(data))
         response.end(`Your name: ${userName}  Your Age: ${userAge}`);
         }else{
             fs.readFile("1.html", (_, data) => response.end(data));
