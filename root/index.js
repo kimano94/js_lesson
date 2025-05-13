@@ -5,12 +5,15 @@ Col_id = 1;
 let Mode = "Normal";
 
 function NewTable() {
+  //Создает таблицу
   let div = document.getElementById("Table_div");
   let UI = document.getElementsByClassName("UI");
   let table = document.createElement("table");
   table.id = "Table";
   table.append(...AddTr(TrCount));
   div.append(table);
+
+  //Показывает кнопки
   for (let UIElem of UI) {
     if (UIElem.hidden != 1) {
       UIElem.hidden = 1;
@@ -21,6 +24,7 @@ function NewTable() {
 }
 
 function NewTr() {
+  //Добавляет tr
   let table = document.getElementById("Table");
   let input = document.getElementById("Row");
   let number = input.value;
@@ -31,6 +35,7 @@ function NewTr() {
   table.append(...AddTr(number));
 }
 function NewTd() {
+  //Добавляет td
   let input = document.getElementById("Col");
   let tr = document.getElementsByTagName("tr");
   let Old_id = Col_id;
@@ -46,6 +51,7 @@ function NewTd() {
 }
 
 function AddTr(Count) {
+  //Добавляет tr
   let result = [];
   for (let i = 0; i <= Count - 1; i++) {
     let tr = document.createElement("tr");
@@ -59,6 +65,7 @@ function AddTr(Count) {
 }
 
 function AddTd(Count) {
+  //Добавляет td
   let result = [];
   for (let i = 0; i <= Count - 1; i++) {
     let td = document.createElement("td");
@@ -70,9 +77,10 @@ function AddTd(Count) {
 }
 
 function Search() {
+  //Поиск по позиции
   let td = document.getElementsByTagName("td");
   for (let cell of td) {
-    cell.style.backgroundColor = "#202428";
+    cell.style.backgroundColor = null;
   }
   let Ver = document.getElementById("Tr");
   let Hor = document.getElementById("Td");
@@ -88,10 +96,11 @@ function Search() {
   }
 }
 function Text() {
+  //Поиск по тексту
   let td = document.getElementsByTagName("td");
   let Text = document.getElementById("Text");
   for (let cell of td) {
-    cell.style.backgroundColor = "#202428";
+    cell.style.backgroundColor = null;
   }
   for (cell of td) {
     if (cell.innerHTML == Text.value) {
@@ -101,16 +110,21 @@ function Text() {
 }
 
 function ChangeMode() {
+  //Меняет режим
   let UI = document.getElementsByClassName("UI");
   let Search = document.getElementsByClassName("Search");
   let Text = document.getElementsByClassName("Text");
   if (Mode == "Normal") {
+    //На инпут
+
+    //Показывает и скрывает кнопки
     for (let UIElem of UI) {
       UIElem.hidden = 1;
       if (UIElem.id == "Change_Mode" || UIElem.id == "Save") {
         UIElem.hidden = 0;
       }
     }
+
     Mode = "Value";
     let td = document.getElementsByTagName("td");
     for (let cell of td) {
@@ -121,9 +135,13 @@ function ChangeMode() {
       cell.append(input);
     }
   } else if (Mode == "Value") {
+    //На поиск по id
+
+    //Показывает и скрывает кнопки
     for (let UIElem of Search) {
       UIElem.hidden = 0;
     }
+
     Mode = "Search";
     let td = document.getElementsByTagName("td");
     for (let cell of td) {
@@ -132,18 +150,25 @@ function ChangeMode() {
       input.remove();
     }
   } else if (Mode == "Search") {
+    //На поиск по тексту
+
+    //Показывает и скрывает кнопки
     for (let UIElem of Search) {
       UIElem.hidden = 1;
     }
     for (let UIElem of Text) {
       UIElem.hidden = 0;
     }
+
     Mode = "Text";
     let td = document.getElementsByTagName("td");
     for (let cell of td) {
-      cell.style.backgroundColor = "#202428";
+      cell.style.backgroundColor = null;
     }
   } else if (Mode == "Text") {
+    //На обычный
+
+    //Показывает и скрывает кнопки
     for (let UIElem of UI) {
       UIElem.hidden = 0;
       if (UIElem.id == "Table_Button") {
@@ -153,17 +178,46 @@ function ChangeMode() {
     for (let UIElem of Text) {
       UIElem.hidden = 1;
     }
+
     Mode = "Normal";
     let td = document.getElementsByTagName("td");
     for (let cell of td) {
-      cell.style.backgroundColor = "#202428";
+      cell.style.backgrounTaColor = null;
     }
   }
 }
 function Save() {
+  //Сохраняет таблицу
   let table = document.getElementById("Table");
-  let div = document.getElementById("Save");
-  let p = document.createElement("p");
-  p.innerHTML = table.outerHTML;
-  div.append(p);
+  let div = document.getElementById("Save_div");
+
+  let ps = document.getElementById("p");
+  if (ps != null) {
+    // Проверяет существование
+    let result = table.outerHTML;
+    result = result.replaceAll(
+      '<td id="',
+      '<td style="border:solid 1px black" id="'
+    );
+    result = result.replaceAll("&", "&amp;");
+    result = result.replaceAll("<", "&lt;");
+    result = result.replaceAll(">", "&gt;");
+    ps.innerHTML = result;
+  } else {
+    let pe = document.createElement("p");
+    let p = document.createElement("p");
+    p.id = "p";
+    div.append(pe);
+    pe.innerHTML = "<strong>Скопируйте и вставьте в свой проект:<strong>";
+    div.append(p);
+    let result = table.outerHTML;
+    result = result.replaceAll(
+      '<td id="',
+      '<td style="border:solid 1px black" id="'
+    );
+    result = result.replaceAll("&", "&amp;");
+    result = result.replaceAll("<", "&lt;");
+    result = result.replaceAll(">", "&gt;");
+    p.innerHTML = result;
+  }
 }
