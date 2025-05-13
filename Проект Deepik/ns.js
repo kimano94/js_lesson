@@ -23,9 +23,10 @@ http.createServer(async (request, response) => {
             if(paramName === "userage") userAge = paramValue;
         }
         if(userAge>=14){
-            data = ""
-            fs.writeFile("Deepik.html", data)
-            response.end(data)
+            // data = ""
+            // fs.writeFile("Deepik.html", data)
+            fs.readFile("example.html", (_, data) => response.end(data));
+            // response.end(data)
             let a = document.getElementById("file").value
             fs.readFile(a, (_, data) => response.end(data))
         response.end(`Your name: ${userName}  Your Age: ${userAge}`);
