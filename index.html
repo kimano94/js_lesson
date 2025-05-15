@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>Deserg</title>
-    <style>
-        body { 
-
-            background-color: rgb(202, 255, 124); 
-    
-        }
-    </style>
-</head>
-<body>
-<form action="user" method="post">
-<p>
-    <label>Имя:</label><br>
-    <input name="username" />
-</p>
-<p>
-    <label>Возраст:</label><br>
-    <input name="userage" type="number" />
-</p>
-<input type="submit" value="Отправить" />
-</form>
-</body>
+	<head>
+		<title>{% get title %}</title>
+	</head>
+	<body>
+		<div id="wrapper">
+			<header>
+				common header
+			</header>
+			<main>
+				{% get content %}
+			</main>
+			<aside>
+				common sidebar
+			</aside>
+			<footer>
+				common footer
+			</footer>
+		</div>
+	</body>
 </html>
