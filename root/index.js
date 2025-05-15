@@ -7,6 +7,7 @@ let Mode = "Normal";
 function NewTable() {
   //Создает таблицу
   let div = document.getElementById("Table_div");
+  div.style.scrollbarWidth = "thin";
   let UI = document.getElementsByClassName("UI");
   let table = document.createElement("table");
   table.id = "Table";
