@@ -79,3 +79,9 @@ input {
   position: sticky;
   bottom: 0px;
 }
+
+#pd {
+  height: 150px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}

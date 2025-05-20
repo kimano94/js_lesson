@@ -190,8 +190,8 @@ function ChangeMode() {
 function Save() {
   //Сохраняет таблицу
   let table = document.getElementById("Table");
-  let div = document.getElementById("Save_div");
-
+  let pdiv = document.getElementById("pd");
+  pdiv.style.scrollbarWidth = "thin";
   let ps = document.getElementById("p");
   if (ps != null) {
     // Проверяет существование
@@ -208,9 +208,9 @@ function Save() {
     let pe = document.createElement("p");
     let p = document.createElement("p");
     p.id = "p";
-    div.append(pe);
-    pe.innerHTML = "<strong>Скопируйте и вставьте в свой проект:<strong>";
-    div.append(p);
+    pdiv.append(pe);
+    pe.innerHTML = "<strong>Скопируйте и вставьте в свой проект:</strong>";
+    pdiv.append(p);
     let result = table.outerHTML;
     result = result.replaceAll(
       '<td id="',

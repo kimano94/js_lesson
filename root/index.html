@@ -60,7 +60,13 @@
     <div id="Table_div"></div>
     <div id="Save_div">
       <button class="UI" onclick="Save()" id="Save" hidden>Сохранить</button>
+      <div id="pd"></div>
     </div>
     <script src="index.js"></script>
+    <script type="module">
+      import { FileSave } from "./file.js";
+      let button = document.getElementById("Save");
+      button.addEventListener("click", () => FileSave());
+    </script>
   </body>
 </html>
